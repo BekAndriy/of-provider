@@ -1,0 +1,15 @@
+.idea
+.vscode
+
+node_modules
+dist
+.serverless
+
+*-lock.json
+
+# Terraform initialization files
+.terraform/
+.terraform.*.lock.*
+.terraform.lock.*
+terraform.tfstate
+terraform.tfstate.*

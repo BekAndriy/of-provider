@@ -1,0 +1,51 @@
+{
+	"devtools_port": 9090,
+	"licenseKey": "openfin-learn-license-key",
+	"runtime": {
+		"arguments": "--v=1 --inspect",
+		"version": "32.114.76.20"
+	},
+	"platform": {
+		"uuid": "provider-window-001",
+		"icon": "http://localhost:9000/favicon.ico",
+		"autoShow": false,
+		"providerUrl": "http://localhost:9000/index.html",
+		"preventQuitOnLastWindowClosed": true,
+		"frame": false,
+		"alwaysOnTop": false,
+		"resizable": false,
+		"defaultCentered": true,
+		"defaultHeight": 700,
+		"defaultWidth": 600,
+		"saveWindowState": false,
+		"showTaskbarIcon": false,
+		"allowHttpToHttpsNetworkRedirects": 0,
+		"cornerRounding": {
+			"width": 0,
+			"height": 0
+		}
+	},
+	"shortcut": {
+		"company": "OpenFin",
+		"description": "A way of showing examples of what OpenFin can do.",
+		"icon": "http://localhost:9000/favicon.ico",
+		"name": "OpenFin - v15.0.0",
+		"target": [
+			"desktop",
+			"start-menu"
+		]
+	},
+	"supportInformation": {
+		"company": "OpenFin",
+		"product": "OpenFin - Client",
+		"email": "support@openfin.co",
+		"forwardErrorReports": true
+	},
+	"startup_app": {
+		"enableAppLogging": true,
+		"logManagement": {
+			"enabled": true
+		}
+	},
+	"customSettings": {}
+}

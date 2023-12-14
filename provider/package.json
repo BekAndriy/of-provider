@@ -1,0 +1,32 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "npm run build:prod",
+    "build:dev": "webpack build --config ./webpack.dev.config.js",
+    "build:prod": "webpack build --config ./webpack.prod.config.js",
+    "start:dev": "webpack serve --config ./webpack.dev-server.config.js",
+    "deploy": "az storage blob upload-batch -s ./dist -d $web --account-name saofprov001dev --overwrite",
+    "build:deploy": "npm run build && npm run deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openfin/workspace": "15.0.11",
+    "@openfin/workspace-platform": "15.0.11",
+    "axios": "^1.6.2",
+    "query-string": "^8.1.0"
+  },
+  "devDependencies": {
+    "@openfin/core": "32.76.20",
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
