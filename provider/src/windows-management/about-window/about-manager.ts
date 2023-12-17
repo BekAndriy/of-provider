@@ -26,4 +26,12 @@ export class AboutManager extends BaseWindowManager<void> {
       AboutManager._instance = new AboutManager()
     }
   }
+
+  async showWindowOnce(): Promise<void> {
+    try {
+      await super.showWindowOnce();
+    } catch {
+
+    }
+  }
 }

@@ -5,7 +5,8 @@ export enum CustomActionsIds {
   OpenPage = 'OpenPage',
   OpenDock = 'OpenDock',
   SignOut = 'SignOut',
-  Quit = 'Quit'
+  Quit = 'Quit',
+  About = 'About'
 }
 
 type Callback = (payload: CustomActionPayload) => unknown;

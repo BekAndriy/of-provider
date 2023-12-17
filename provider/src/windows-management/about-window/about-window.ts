@@ -24,7 +24,8 @@ export class AboutWindow extends BaseWindow {
   get windowCreationOptions(): OpenFin.WindowCreationOptions {
     return {
       ...super.windowCreationOptions,
-      url: APPS_URLS.about
+      url: APPS_URLS.about,
+      autoShow: true,
     }
   }
 }

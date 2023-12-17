@@ -13,6 +13,7 @@ import { Tray } from '../application/tray';
 import { AuthManager } from './auth-window';
 import { RecentManager } from './recent-window';
 import { APPS_URLS } from '../constants/urls';
+import { AboutManager } from './about-window';
 
 
 const OPEN_WINDOW_EVENT_ID = 'open-window';
@@ -149,6 +150,7 @@ export class WindowsManager {
     PlatformCustomActions.instance.setActionHandler(CustomActionsIds.OpenNewWindow, this.openNewWindowHandler.bind(this));
     PlatformCustomActions.instance.setActionHandler(CustomActionsIds.OpenPage, this.openPageHandler.bind(this));
     PlatformCustomActions.instance.setActionHandler(CustomActionsIds.SignOut, this.signOut.bind(this));
+    PlatformCustomActions.instance.setActionHandler(CustomActionsIds.About, this.openAboutWindow.bind(this));
   }
 
   private openNewWindowHandler(payload: CustomActionPayload) {
@@ -186,6 +188,13 @@ export class WindowsManager {
       await WindowsManager.instance.initializeWorkspace(openPayload)
     } catch {
       fin.Platform.getCurrentSync().quit();
+    }
+  }
+
+  private async openAboutWindow() {
+    try {
+      await AboutManager.instance.showWindowOnce();
+    } catch {
     }
   }
 

@@ -1,6 +1,6 @@
 ## Sign In
 
-Note install and launch projects to see sign-in window.
+Note install and launch projects to see sign-in window according to instruction in [README](../README.md).
 
 <img src="./images/sign-in.png" width="350"/>
 

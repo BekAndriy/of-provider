@@ -163,10 +163,13 @@ export function createPlatformOverride(
         enabled: !pagesMap.get(name),
         type: "checkbox"
       }))
-      console.log('TOKEN: ', TokenManager.instance.preserveSession)
+
       const template = [
-        menuItemsMap.get(GlobalContextMenuOptionType.RestoreChanges),
         newWindowAction,
+        {
+          label: 'About Platform',
+          data: { type: GlobalContextMenuOptionType.Custom, action: { id: CustomActionsIds.About, customData: {} } },
+        },
         separator,
         {
           enabled: !!pagesParsed.length,
@@ -179,6 +182,7 @@ export function createPlatformOverride(
         menuItemsMap.get(GlobalContextMenuOptionType.SavePageAs),
         separator,
         switchWorkspaceAction,
+        menuItemsMap.get(GlobalContextMenuOptionType.RestoreChanges),
         menuItemsMap.get(GlobalContextMenuOptionType.SaveWorkspace),
         menuItemsMap.get(GlobalContextMenuOptionType.SaveWorkspaceAs),
         deleteWorkspaceAction,

@@ -14,8 +14,10 @@ export abstract class BaseWindow {
   };
 
   get windowCreationOptions(): OpenFin.WindowCreationOptions {
+    const uuid = randomUUID();
     return {
-      name: randomUUID(),
+      name: uuid,
+      uuid,
       customData: {
         token: TokenManager.instance.token
       },

@@ -1,6 +1,8 @@
 import { BusProvider } from "./bus-provider";
 import { QuitPlatformException } from "../../services/exceptions";
 import OpenFin from "@openfin/core";
+import { EventHandler } from "@openfin/core/src/api/events/base";
+import { WindowEvent } from "@openfin/core/src/OpenFin";
 
 export abstract class BaseWindowManager<T> {
   protected abstract busProvider: BusProvider<any>;
@@ -11,8 +13,9 @@ export abstract class BaseWindowManager<T> {
     return new Promise<T>((resolve, reject) => {
       const Inter = this.busProvider;
 
-      const handleCloseRequest = () => {
+      const handleCloseRequest: OpenFin.BaseEvents.EventHandler<WindowEvent, "close-requested"> = async (event) => {
         Inter.destroy();
+        fin.Platform.getCurrentSync().closeWindow({ uuid: event.uuid, name: event.name })
         reject(new QuitPlatformException())
       }
 
@@ -31,7 +34,8 @@ export abstract class BaseWindowManager<T> {
             authFinWindow.close();
             resolve(payload)
           })
-          authFinWindow.addListener('close-requested', handleCloseRequest)
+          authFinWindow.addListener('close-requested', handleCloseRequest);
+          authFinWindow.bringToFront();
         });
     })
   }
